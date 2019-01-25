@@ -7,9 +7,9 @@ export default class App extends Component {
 
   //reder() é a função responsável por renderizar a tela
   render(){ //Simples é o nome do componente que criamos e foi chamado dentro de View
-    return (
+    return ( //observe que passamos uma propriedade chamada texto com o valor 'Flexível!'
       <View style={styles.container}>
-        <Simples/>
+        <Simples texto='Flexível!'/>
       </View>
     )
   }
