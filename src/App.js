@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import Simples from './componentes/Simples'
+import ParImpar from './componentes/ParImpar'
 
 //esse componente está sendo usado dentro do index.js, por isso precisamos exportar
 export default class App extends Component {
@@ -10,6 +11,7 @@ export default class App extends Component {
     return ( //observe que passamos uma propriedade chamada texto com o valor 'Flexível!'
       <View style={styles.container}>
         <Simples texto='Flexível!'/>
+        <ParImpar numero={5}></ParImpar>
       </View>
     )
   }
