@@ -4,6 +4,7 @@ import Simples from './componentes/Simples'
 import ParImpar from './componentes/ParImpar'
 import { Reverter, Show } from './componentes/Multi' //arquivo com multiplas funções, se usasse default não poderia ter multiplas e não usaria {}
 import Contador from './componentes/Contador';
+import ValidarProps from './componentes/ValidarProps';
 
 //esse componente está sendo usado dentro do index.js, por isso precisamos exportar
 export default class App extends Component {
@@ -17,6 +18,7 @@ export default class App extends Component {
         <Reverter texto='React'/>
         <Show msg="hello"/>
         <Contador numeroInicial={8}/>
+        <ValidarProps ano={19}></ValidarProps>
       </View>
     )
   }
