@@ -6,6 +6,7 @@ import { Reverter, Show } from './componentes/Multi' //arquivo com multiplas fun
 import Contador from './componentes/Contador';
 import ValidarProps from './componentes/ValidarProps';
 import Evento from './componentes/Evento';
+import { Avo } from './componentes/ComunicacaoDireta'
 
 //esse componente está sendo usado dentro do index.js, por isso precisamos exportar
 export default class App extends Component {
@@ -14,13 +15,14 @@ export default class App extends Component {
   render(){ //Simples é o nome do componente que criamos e foi chamado dentro de View
     return ( //observe que passamos uma propriedade chamada texto com o valor 'Flexível!'
       <View style={styles.container}>
-        <Simples texto='Flexível!'/>
+        {/*<Simples texto='Flexível!'/>
         <ParImpar numero={5} />
         <Reverter texto='React'/>
         <Show msg="hello"/>
         <Contador numeroInicial={8}/>
         <ValidarProps ano={19}></ValidarProps>
-        <Evento/>
+        <Evento/>*/}
+        <Avo nome="João" sobrenome="Silva" />
       </View>
     )
   }
