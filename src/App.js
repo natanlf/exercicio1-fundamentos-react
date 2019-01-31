@@ -27,6 +27,7 @@ import React, { Component } from "react";
           placeholder="Enter Text to Share"
           style={styles.TextInputStyle}
           onChangeText={TextInputText => { this.setState({ inputValue: TextInputText }); }}
+          multiline
         />
 
         <View style={{margin: 10}}>
