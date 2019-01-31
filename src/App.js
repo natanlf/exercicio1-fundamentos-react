@@ -1,38 +1,60 @@
-import React, { Component } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import Simples from './componentes/Simples'
-import ParImpar from './componentes/ParImpar'
-import { Reverter, Show } from './componentes/Multi' //arquivo com multiplas funções, se usasse default não poderia ter multiplas e não usaria {}
-import Contador from './componentes/Contador';
-import ValidarProps from './componentes/ValidarProps';
-import Evento from './componentes/Evento';
-import { Avo } from './componentes/ComunicacaoDireta'
+import React, { Component } from "react";
+ import { Platform, StyleSheet, View, Text, Share, TextInput, Button } from "react-native";
 
-//esse componente está sendo usado dentro do index.js, por isso precisamos exportar
-export default class App extends Component {
+ export default class App extends Component {
 
-  //reder() é a função responsável por renderizar a tela
-  render(){ //Simples é o nome do componente que criamos e foi chamado dentro de View
-    return ( //observe que passamos uma propriedade chamada texto com o valor 'Flexível!'
-      <View style={styles.container}>
-        {/*<Simples texto='Flexível!'/>
-        <ParImpar numero={5} />
-        <Reverter texto='React'/>
-        <Show msg="hello"/>
-        <Contador numeroInicial={8}/>
-        <ValidarProps ano={19}></ValidarProps>
-        <Evento/>*/}
-        <Avo nome="João" sobrenome="Silva" />
-      </View>
-    )
+   constructor() {
+      super();
+      this.state = { inputValue: '' };
   }
-}
 
-//serve para colocarmos estilos nos componentes
-const styles = StyleSheet.create({ //objeto com todos os estilos 
-  container: { //chamei a chave de container e o valor é o objeto que vem em seguida
+  ShareMessage = () => {
+  //Here is the Share API
+  Share.share({ message: this.state.inputValue.toString(), title : "Sharing via react native" })
+    //after successful share return result
+    .then(result => console.log(result))
+    //If any thing goes wrong it comes here
+    .catch(errorMsg => console.log(errorMsg));
+ };
+
+
+    render() {
+      return (
+        <View style={styles.container}>
+
+        <TextInput
+          underlineColorAndroid="transparent"
+          placeholder="Enter Text to Share"
+          style={styles.TextInputStyle}
+          onChangeText={TextInputText => { this.setState({ inputValue: TextInputText }); }}
+        />
+
+        <View style={{margin: 10}}>
+         <Button title = "SHARE"   onPress={this.ShareMessage} />
+        </View>
+      </View>
+      );
+    }
+ }
+
+ const styles = StyleSheet.create({
+  container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-  }
-})
+    alignItems : 'center'
+  },
+  headerText: {
+    fontSize: 20,
+    textAlign: "center",
+    margin: 10,
+    fontWeight: "bold"
+  },
+  TextInputStyle: {
+    borderWidth: 2,
+    borderColor: 'blue',
+    width: '90%',
+    height: 40,
+    textAlign: 'center',
+  },
+
+});
